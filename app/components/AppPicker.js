@@ -41,7 +41,7 @@ export default function AppPicker({
             {selectedItem ? selectedItem.label : placeholder}
           </AppText>
           <MaterialCommunityIcons
-            name="chevron-up"
+            name="chevron-down"
             size={20}
             color={defaultStyles.colors.medium}
           />
