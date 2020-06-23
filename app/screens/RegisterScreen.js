@@ -29,7 +29,7 @@ export default function RegisterScreen() {
           autoCapitalize="none"
           autoCorrect={false}
           icon="email"
-          keyboadType="email-address"
+          keyboardType="email-address"
           name="email"
           placeholder="Email"
           textContentType="emailAddress"
