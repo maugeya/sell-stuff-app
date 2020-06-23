@@ -1,5 +1,4 @@
 import React from "react"
-import {} from "react-native"
 import { useFormikContext } from "formik"
 
 import AppTextInput from "./AppTextInput"
