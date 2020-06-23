@@ -11,10 +11,10 @@ import {
 } from "react-native"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
-import defaultStyles from "../config/styles"
-import Screen from "./Screen"
-import AppText from "./AppText"
-import PickerItem from "./PickerItem"
+import defaultStyles from "../../config/styles"
+import Screen from "../Screen"
+import AppText from "../AppText"
+import PickerItem from "../PickerItem"
 
 export default function AppPicker({
   icon,
