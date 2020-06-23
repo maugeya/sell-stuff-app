@@ -6,6 +6,7 @@ import Screen from "../components/Screen"
 import { AppForm, AppFormField, SubmitButton } from "../components/forms"
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().lowercase().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 })
@@ -52,12 +53,5 @@ export default function RegisterScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-  },
-  logo: {
-    alignSelf: "center",
-    height: 80,
-    marginBottom: 50,
-    marginTop: 50,
-    width: 80,
   },
 })
