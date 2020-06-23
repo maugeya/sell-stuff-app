@@ -19,6 +19,13 @@ export default function RegisterScreen() {
         validationSchema={validationSchema}
       >
         <AppFormField
+          autoCorrect={false}
+          icon="account"
+          name="name"
+          placeholder="Name"
+          textContentType="name"
+        />
+        <AppFormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="email"
