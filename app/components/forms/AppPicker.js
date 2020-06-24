@@ -15,6 +15,7 @@ import defaultStyles from "../../config/styles"
 import Screen from "../Screen"
 import AppText from "../AppText"
 import PickerItem from "../PickerItem"
+import { setNestedObjectValues } from "formik"
 
 export default function AppPicker({
   icon,
@@ -37,9 +38,11 @@ export default function AppPicker({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText styles={styles.placeholder}>{placeholder}</AppText>
+          )}
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -74,12 +77,17 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: "row",
+    justifyContent: "space-between",
     marginVertical: 10,
     padding: 15,
     width: "100%",
   },
   icon: {
     marginRight: 10,
+  },
+  placeholder: {
+    color: defaultStyles.colors.medium,
+    flex: 1,
   },
   text: {
     flex: 1,
