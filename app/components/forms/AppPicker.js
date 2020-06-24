@@ -15,7 +15,6 @@ import defaultStyles from "../../config/styles"
 import Screen from "../Screen"
 import AppText from "../AppText"
 import PickerItem from "../PickerItem"
-import { setNestedObjectValues } from "formik"
 
 export default function AppPicker({
   icon,
