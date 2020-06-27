@@ -1,11 +1,9 @@
 import React, { useState } from "react"
 import {
   View,
-  TextInput,
   StyleSheet,
   TouchableWithoutFeedback,
   Modal,
-  Text,
   Button,
   FlatList,
 } from "react-native"
