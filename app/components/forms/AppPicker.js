@@ -22,13 +22,14 @@ export default function AppPicker({
   onSelectItem,
   placeholder,
   selectedItem,
+  width = "100%",
 }) {
   const [modalVisible, setModalVisible] = useState(false)
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -79,7 +80,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginVertical: 10,
     padding: 15,
-    width: "100%",
   },
   icon: {
     marginRight: 10,
