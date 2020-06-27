@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import {
-  View,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Modal,
   Button,
   FlatList,
+  Modal,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
@@ -18,6 +18,7 @@ export default function AppPicker({
   icon,
   items,
   onSelectItem,
+  PickerItemComponent = PickerItem,
   placeholder,
   selectedItem,
   width = "100%",
@@ -55,7 +56,7 @@ export default function AppPicker({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false)
