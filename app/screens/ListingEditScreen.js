@@ -30,10 +30,10 @@ const categories = [
   },
   { label: "Cars", value: 2, backgroundColor: "dodgerblue", icon: "car" },
   {
-    label: "Kitchen",
+    label: "Camera",
     value: 3,
     backgroundColor: "gold",
-    icon: "microwave",
+    icon: "camera-wireless",
   },
   {
     label: "Games",
