@@ -3,7 +3,6 @@ import { View, StyleSheet } from "react-native"
 import { Image } from "react-native-expo-image-cache"
 
 import AppText from "../components/AppText"
-import Card from "../components/Card"
 import ListItem from "../components/ListItem"
 import colors from "../config/colors"
 
