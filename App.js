@@ -1,20 +1,21 @@
 import React, { useState } from "react"
-import { Text, Button } from "react-native"
-import { createStackNavigator } from "@react-navigation/stack"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { NavigationContainer, useNavigation } from "@react-navigation/native"
-import { MaterialCommunityIcons } from "@expo/vector-icons"
+import { NavigationContainer } from "@react-navigation/native"
 
-import Screen from "./app/components/Screen"
-import WelcomeScreen from "./app/screens/WelcomeScreen"
+import OfflineNoticeBar from "./app/components/OfflineNoticeBar"
 import AuthNavigator from "./app/navigation/AuthNavigator"
 import navigationTheme from "./app/navigation/navigationTheme"
 import AppNavigator from "./app/navigation/AppNavigator"
+import AuthContext from "./app/auth/context"
 
 export default function App() {
+  const [user, setUser] = useState()
+
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <OfflineNoticeBar />
+      <NavigationContainer theme={navigationTheme}>
+        {user ? <AppNavigator /> : <AuthNavigator />}
+      </NavigationContainer>
+    </AuthContext.Provider>
   )
 }
