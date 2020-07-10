@@ -12,6 +12,8 @@ import {
 import usersApi from "../api/users"
 import authApi from "../api/auth"
 import useAuth from "../hooks/useAuth"
+import useApi from "../hooks/useApi"
+import AppActivityIndicator from "../components/AppActivityIndicator"
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().lowercase().label("Name"),
@@ -19,12 +21,14 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label("Password"),
 })
 
-export default function RegisterScreen({ navigation }) {
+export default function RegisterScreen() {
+  const registerApi = useApi(usersApi.register)
+  const loginApi = useApi(authApi.login)
   const [error, setError] = useState()
   const { login } = useAuth()
 
   const handleSubmit = async (userInfo) => {
-    const result = await usersApi.register(userInfo)
+    const result = await registerApi.request(userInfo)
 
     if (!result.ok) {
       if (result.data) setError(result.data.error)
@@ -35,7 +39,7 @@ export default function RegisterScreen({ navigation }) {
       return
     }
 
-    const { data: authToken } = await authApi.login(
+    const { data: authToken } = await loginApi.request(
       userInfo.email,
       userInfo.password
     )
@@ -45,6 +49,7 @@ export default function RegisterScreen({ navigation }) {
 
   return (
     <Screen style={styles.container}>
+      <AppActivityIndicator visible={registerApi.loading || loginApi.loading} />
       <AppForm
         initialValues={{ name: "", email: "", password: "" }}
         onSubmit={handleSubmit}
