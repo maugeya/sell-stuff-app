@@ -29,10 +29,6 @@ const menuItems = [
 export default function AccountScreen({ navigation }) {
   const { user, logout } = useAuth()
 
-  const handleLogout = () => {
-    logout()
-  }
-
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -64,7 +60,7 @@ export default function AccountScreen({ navigation }) {
       <ListItem
         title="Logout"
         IconComponent={<MenuIcon name="logout" backgroundColor="#ffe66d" />}
-        onPress={handleLogout}
+        onPress={() => logout()}
       />
     </Screen>
   )
