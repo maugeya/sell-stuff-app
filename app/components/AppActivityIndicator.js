@@ -19,11 +19,16 @@ export default function AppActivityIndicator({ visible = false }) {
 const styles = StyleSheet.create({
   animationContainer: {
     alignItems: "center",
+    backgroundColor: "white",
+    height: "100%",
     justifyContent: "center",
-    flex: 1,
+    opacity: 0.8,
+    position: "absolute",
+    width: "100%",
+    zIndex: 1,
   },
   lottieView: {
-    height: 200,
-    width: 200,
+    height: 150,
+    width: 150,
   },
 })
